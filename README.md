@@ -1,3 +1,5 @@
+# Initialize a Powershell Environment and create a Project Home directory <br>
+
 powershell <br>
 
 $PROJECT_HOME="C:\Users\nomea\Documents\Projects\jms" <br>
