@@ -58,7 +58,7 @@ Edit the Java version in <maven.compiler.source>, using Java 12 in this example<
 A massive jar is built with all of the dependencies self-contained including the Scala runtime<br>
 mvn package<br>
 
-# How to initialize environment and run Scala programs<br>
+# How to initialize environment<br>
 powershell<br>
 $PROJECT_HOME="C:\Users\nomea\Documents\Projects\jms"<br>
 $env:JAVA_HOME = "$PROJECT_HOME\jdk-12.0.2"<br>
@@ -68,6 +68,13 @@ $env:Path = "$env:SCALA_HOME\bin" + ";$env:Path"<br>
 $env:Path += ";$PROJECT_HOME\apache-maven-3.6.3\bin"<br>
 $APP_NAME="jms-connector-app"<br>
 
+# How to build<br>
+cd $PROJECT_HOME\$APP_NAME
+mvn package
+
+# How to run<br>
+Create messages in AMQ for testing<br>
 java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.OneMessagePerFileInDirectoryApp<br>
-java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.ReadQueueWriteToS3App<br>
+Write messages from AMQ into S3<br>
+java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.ProcessJmsQueueApp<br>
 
