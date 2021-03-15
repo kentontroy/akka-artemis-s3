@@ -16,8 +16,8 @@ mkdir $ARTEMIS_HOME\docker <br>
 Copy-Item -Path $PROJECT_HOME\activemq-artemis\artemis-docker\Dockerfile-* -Destination $ARTEMIS_HOME\docker <br>
 Copy-Item -Path $PROJECT_HOME\activemq-artemis\artemis-docker\docker-run.sh -Destination $ARTEMIS_HOME\docker <br>
 
-bitsadmin /CREATE /DOWNLOAD download_artemis <br>
-bitsadmin /ADDFILE download_artemis "https://www.apache.org/dyn/closer.cgi?filename=activemq/activemq-artemis/2.16.0/apache-artemis-2.16.0-bin.zip&action=download" $ARTEMIS_HOME\docker\apache-artemis-2.16.0-bin.zip <br>
+bitsadmin /CREATE /DOWNLOAD download_artemis <br><br>
+bitsadmin /ADDFILE download_artemis "https://www.apache.org/dyn/closer.cgi?filename=activemq/activemq-artemis/2.16.0/apache-artemis-2.16.0-bin.zip&action=download" $ARTEMIS_HOME\docker\apache-artemis-2.16.0-bin.zip <br><br>
 bitsadmin /RESUME download_artemis <br>
 bitsadmin /INFO download_artemis /VERBOSE <br>
 bitsadmin /COMPLETE download_artemis <br>
