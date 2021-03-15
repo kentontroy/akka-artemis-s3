@@ -30,8 +30,8 @@ bitsadmin /COMPLETE download_scala_2_13_4<br>
 $env:SCALA_HOME =  "C:\Program Files (x86)\scala"<br>
 $env:Path = "$env:SCALA_HOME\bin" + ";$env:Path"<br>
 
-# Reference -- http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html<br>
-Build a Scala skeleton project using the Maven plugin<br>
+# Build a Scala skeleton project using a downloaded Maven plugin<br>
+Reference -- http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html<br>
 
 bitsadmin /CREATE /DOWNLOAD download_maven<br>
 bitsadmin /ADDFILE download_maven "https://mirrors.ocf.berkeley.edu/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip" $PROJECT_HOME\apache-maven-3.6.3-bin.zip<br>
