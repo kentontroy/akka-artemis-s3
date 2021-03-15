@@ -73,8 +73,8 @@ cd $PROJECT_HOME\$APP_NAME<br>
 mvn package<br>
 
 # How to run<br>
-Create messages in AMQ for testing<br><br>
-java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.OneMessagePerFileInDirectoryApp<br>
-Write messages from AMQ into S3<br><br>
+Create messages in AMQ for testing<br>
+java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.OneMessagePerFileInDirectoryApp<br><br>
+Write messages from AMQ into S3<br>
 java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.ProcessJmsQueueApp<br>
 
