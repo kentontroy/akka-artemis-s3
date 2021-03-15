@@ -3,9 +3,7 @@ powershell <br>
 $PROJECT_HOME="C:\Users\nomea\Documents\Projects\jms" <br>
 cd $PROJECT_HOME <br>
 
-#################################################################################################### <br>
 # Install JDK<br>
-####################################################################################################<br>
 
 bitsadmin /CREATE /DOWNLOAD download_openjdk_12<br>
 bitsadmin /ADDFILE download_openjdk_12 "https://download.java.net/java/GA/jdk12.0.2/e482c34c86bd4bf8b56c0b35558996b9/10/GPL/openjdk-12.0.2_windows-x64_bin.zip" $PROJECT_HOME\openjdk-12.0.2_windows-x64_bin.zip<br>
