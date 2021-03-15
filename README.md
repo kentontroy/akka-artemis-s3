@@ -1,3 +1,5 @@
+<img src="./statfx_akka_amq_s3.png" alt="Simple pattern"/>
+
 # Initialize a Powershell Environment and create a Project Home directory <br>
 
 powershell <br>
