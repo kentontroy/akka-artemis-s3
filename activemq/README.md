@@ -6,8 +6,8 @@ $ARTEMIS_HOME="$PROJECT_HOME\activemq-artemis" <br>
 cd $PROJECT_HOME <br>
 
 # Clone Artemis Git repo if needed <br>
-# Windows uses LF, Unix style is CRLF for line endings <br>
-# Reference -- https://stackoverflow.com/questions/10418975/how-to-change-line-ending-settings <br>
+Windows uses LF, Unix style is CRLF for line endings <br>
+Reference -- https://stackoverflow.com/questions/10418975/how-to-change-line-ending-settings <br>
 
 git config --global core.autocrlf input <br>
 git clone https://github.com/apache/activemq-artemis <br>
@@ -24,9 +24,10 @@ bitsadmin /COMPLETE download_artemis <br>
 
 Expand-Archive -Path "$ARTEMIS_HOME\docker\apache-artemis-2.16.0-bin.zip" -DestinationPath ".\" <br>
 
-# Change the Dockerfile to use backward slashes for Windows paths for the docker-run.sh reference <br>
-# Change "ADD . /opt/activemq-artemis" To "ADD ./apache-artemis-2.16.0 /opt/activemq-artemis" <br>
-# Change "COPY ./docker/docker-run.sh /" To "COPY docker-run.sh /" <br>
+# Build Docker image <br>
+Change the Dockerfile to use backward slashes for Windows paths for the docker-run.sh reference <br>
+Change "ADD . /opt/activemq-artemis" To "ADD ./apache-artemis-2.16.0 /opt/activemq-artemis" <br>
+Change "COPY ./docker/docker-run.sh /" To "COPY docker-run.sh /" <br>
 
 cd $ARTEMIS_HOME\docker <br>
 docker build -f Dockerfile-centos -t artemis-centos . <br>
