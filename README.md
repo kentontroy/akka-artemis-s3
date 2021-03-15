@@ -69,12 +69,12 @@ $env:Path += ";$PROJECT_HOME\apache-maven-3.6.3\bin"<br>
 $APP_NAME="jms-connector-app"<br>
 
 # How to build<br>
-cd $PROJECT_HOME\$APP_NAME
-mvn package
+cd $PROJECT_HOME\$APP_NAME<br>
+mvn package<br>
 
 # How to run<br>
-Create messages in AMQ for testing<br>
+Create messages in AMQ for testing<br><br>
 java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.OneMessagePerFileInDirectoryApp<br>
-Write messages from AMQ into S3<br>
+Write messages from AMQ into S3<br><br>
 java -cp target/jms-connector-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.statisticalfx.jms.ProcessJmsQueueApp<br>
 
