@@ -1,4 +1,4 @@
-#3 General Pattern <br>
+## General Pattern <br>
 
 <img src="./statfx_akka_amq_s3.png" alt="Simple pattern"/> <br>
 <ul>
