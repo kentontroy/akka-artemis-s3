@@ -11,6 +11,7 @@ import akka.stream.alpakka.s3.scaladsl.S3
 import akka.stream.scaladsl.{Sink, Source}
 import akka.util.ByteString
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.LazyLogging
 import java.text.SimpleDateFormat
 import java.util.{Calendar, UUID}
 import scala.concurrent.{Await, ExecutionContext, Future}
@@ -53,7 +54,7 @@ object JmsConsumerActor {
 
       message match {
         case WriteToS3 =>
-          context.log.info("listening for new messages")
+          logger.info("listening for new messages")
 
           try {
             /*
@@ -90,33 +91,33 @@ object JmsConsumerActor {
                 val rUnwrapped: Try[MultipartUploadResult] = Await.ready(result, ackDuration).value.get
                 val _ = rUnwrapped match {
                   case Success(t) => {
-                    context.log.info(t.toString())
+                    logger.info(t.toString())
                     txEnvelope.commit()
-                    context.log.info("Message committed")
+                    logger.info("Message committed")
                   }
                   case Failure(e) => {
-                    context.log.error(s"${e.getMessage()}")
-                    context.log.info("Message not committed")
+                    logger.error(s"${e.getMessage()}")
+                    logger.info("Message not committed")
                     txEnvelope.rollback()
                   }
                 }
               }))
 
             Behaviors.stopped { () =>
-              context.log.info("#1 JmsConsumerActor shutting down")
+              logger.info("#1 JmsConsumerActor shutting down")
             }
 
           }
           catch {
             case t: scala.concurrent.TimeoutException => {
               Behaviors.stopped { () =>
-                context.log.info("#2 JmsConsumerActor shutting down")
+                logger.info("#2 JmsConsumerActor shutting down")
               }
             }
             case e: Throwable => {
-              context.log.error(s"${e.getMessage()}")
+              logger.error(s"${e.getMessage()}")
               Behaviors.stopped { () =>
-                context.log.info("#3 JmsConsumerActor shutting down")
+                logger.info("#3 JmsConsumerActor shutting down")
               }
             }
           }
